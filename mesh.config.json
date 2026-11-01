@@ -1,0 +1,51 @@
+{
+  "host": "127.0.0.1",
+  "port": 8080,
+  "key": "local-mesh-key",
+  "policy": "fastest",
+  "probeIntervalMs": 30000,
+  "requestTimeoutMs": 120000,
+  "database": "mesh.db",
+  "providers": [
+    {
+      "name": "pollinations",
+      "baseUrl": "https://text.pollinations.ai/openai",
+      "apiKey": "none",
+      "models": ["openai", "mistral"],
+      "capabilities": { "tools": false, "context": 128000 },
+      "cost": 0
+    },
+    {
+      "name": "groq",
+      "baseUrl": "https://api.groq.com/openai/v1",
+      "apiKey": "env:GROQ_API_KEY",
+      "models": ["llama-3.3-70b-versatile"],
+      "capabilities": { "tools": true, "context": 128000 },
+      "cost": 0
+    },
+    {
+      "name": "openai",
+      "baseUrl": "https://api.openai.com/v1",
+      "apiKey": "env:OPENAI_API_KEY",
+      "models": ["gpt-4o-mini"],
+      "capabilities": { "tools": true, "context": 128000 },
+      "cost": 2
+    },
+    {
+      "name": "together",
+      "baseUrl": "https://api.together.xyz/v1",
+      "apiKey": "env:TOGETHER_API_KEY",
+      "models": ["meta-llama/Llama-3.3-70B-Instruct-Turbo"],
+      "capabilities": { "tools": true, "context": 131000 },
+      "cost": 1
+    },
+    {
+      "name": "ollama",
+      "baseUrl": "http://127.0.0.1:11434/v1",
+      "apiKey": "none",
+      "models": ["llama3.2"],
+      "capabilities": { "tools": false, "context": 131000 },
+      "cost": 0
+    }
+  ]
+}

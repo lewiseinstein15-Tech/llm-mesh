@@ -1,0 +1,27 @@
+{
+  "name": "llm-mesh",
+  "version": "0.1.0",
+  "description": "Local-first LLM inference mesh — one OpenAI-compatible endpoint that routes across providers with health-aware failover. No cloud, no keys leaving your machine.",
+  "type": "module",
+  "main": "src/index.js",
+  "bin": {
+    "mesh": "src/index.js"
+  },
+  "scripts": {
+    "start": "node src/index.js",
+    "test": "node --test --test-force-exit test/*.test.js"
+  },
+  "engines": {
+    "node": ">=22.5"
+  },
+  "keywords": [
+    "llm",
+    "proxy",
+    "openai-compatible",
+    "router",
+    "failover",
+    "local-first",
+    "mesh"
+  ],
+  "license": "MIT"
+}
