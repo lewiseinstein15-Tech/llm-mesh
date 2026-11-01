@@ -4,7 +4,7 @@
 
 ```
 arcen ───────┐
-engineer-buddy ┼──▶ http://localhost:8080/v1 ──▶ Groq / OpenAI / Together / Ollama / keyless…
+engineer-buddy ┼──▶ http://localhost:8080/v1 ──▶ Groq / Gemini / OpenRouter / Mistral / Ollama / keyless…
 jexi-os ──────┘         (one Node process)
 ```
 
@@ -21,9 +21,13 @@ node src/index.js
 # [mesh] listening on http://127.0.0.1:8080/v1
 ```
 
-The default `mesh.config.json` ships with **pollinations (keyless)** working out of the box, plus groq/openai/together (keys read from env) and local Ollama. Then:
+The default `mesh.config.json` ships with **pollinations (keyless)** working out of the box, plus groq/gemini/openrouter/mistral (free-tier keys read from env) and local Ollama:
 
 ```bash
+# keys are optional — export them before starting (never commit them):
+export GROQ_API_KEY=... GEMINI_API_KEY=... OPENROUTER_API_KEY=... MISTRAL_API_KEY=...
+node --env-file=.env src/index.js   # or the exports above
+
 # is anything up?
 curl -s http://localhost:8080/health | jq
 
@@ -65,7 +69,7 @@ Point your agents at it by setting their OpenAI-compatible base URL to `http://l
 }
 ```
 
-**Model routing:** `"model": "auto"` picks by policy and health. `"model": "gpt-4o-mini"` picks any provider advertising it. `"model": "groq/llama-3.3-70b-versatile"` pins a specific provider.
+**Model routing:** `"model": "auto"` picks by policy and health. `"model": "gemini-3.8-flash"` picks any provider advertising it. `"model": "groq/llama-3.3-70b-versatile"` pins a specific provider.
 
 **Secrets never live in the config** — use `env:NAME` references; the config file is safe to commit.
 

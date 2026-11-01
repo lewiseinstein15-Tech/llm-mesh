@@ -24,20 +24,28 @@
       "cost": 0
     },
     {
-      "name": "openai",
-      "baseUrl": "https://api.openai.com/v1",
-      "apiKey": "env:OPENAI_API_KEY",
-      "models": ["gpt-4o-mini"],
+      "name": "gemini",
+      "baseUrl": "https://generativelanguage.googleapis.com/v1beta/openai",
+      "apiKey": "env:GEMINI_API_KEY",
+      "models": ["gemini-3.8-flash"],
       "capabilities": { "tools": true, "context": 128000 },
-      "cost": 2
+      "cost": 0
     },
     {
-      "name": "together",
-      "baseUrl": "https://api.together.xyz/v1",
-      "apiKey": "env:TOGETHER_API_KEY",
-      "models": ["meta-llama/Llama-3.3-70B-Instruct-Turbo"],
-      "capabilities": { "tools": true, "context": 131000 },
-      "cost": 1
+      "name": "openrouter",
+      "baseUrl": "https://openrouter.ai/api/v1",
+      "apiKey": "env:OPENROUTER_API_KEY",
+      "models": ["openrouter/free"],
+      "capabilities": { "tools": false, "context": 128000 },
+      "cost": 0
+    },
+    {
+      "name": "mistral",
+      "baseUrl": "https://api.mistral.ai/v1",
+      "apiKey": "env:MISTRAL_API_KEY",
+      "models": ["mistral-small-latest"],
+      "capabilities": { "tools": true, "context": 32000 },
+      "cost": 0
     },
     {
       "name": "ollama",
